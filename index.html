@@ -18,6 +18,17 @@
 
     const endpoint = 'https://restcountries.eu/rest/v2/all'
 
+    const countries = []
+
+    fetch(endpoint)
+        .then(blob => blob.json())
+        .then(data => countries.push(...data))
+
+        console.log(countries)
+
+
+
+
 </script>
 </body>
 </html>
