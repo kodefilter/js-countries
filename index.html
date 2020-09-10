@@ -24,7 +24,11 @@
         .then(blob => blob.json())
         .then(data => countries.push(...data))
 
-        console.log(countries)
+    function findMatches(searchText, countries) {
+        return countries.filter(country => {
+            return country.name.includes(searchText) || country.capital.includes(searchText)
+        })
+    }
 
 
 
