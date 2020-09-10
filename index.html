@@ -30,6 +30,25 @@
         })
     }
 
+
+    function displayMatches() {
+        const matchArray = findMatches(this.value, countries)
+
+        const html = matchArray.map(country => {
+
+            const regex = new RegExp(this.value, 'gi');
+            const countryName = country.name.replace(regex, `<span class="hl">${this.value}</span>`);
+            const capitalName = country.capital.replace(regex, `<span class="hl">${this.value}</span>`);
+            return `
+                    <li>
+                        <span class="name">${countryName}, ${capitalName}</span>
+                    </li>
+                    `
+        }).join('')
+
+        suggestions.innerHTML = html
+    }
+
     const searchInput = document.querySelector('.search')
     const suggestions = document.querySelector('.suggestions')
 
