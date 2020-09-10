@@ -26,7 +26,7 @@
 
     function findMatches(searchText, countries) {
         return countries.filter(country => {
-            return country.name.includes(searchText) || country.capital.includes(searchText)
+            return country.name.toLowerCase().includes(searchText.toLowerCase()) || country.capital.toLowerCase().includes(searchText.toLowerCase())
         })
     }
 
